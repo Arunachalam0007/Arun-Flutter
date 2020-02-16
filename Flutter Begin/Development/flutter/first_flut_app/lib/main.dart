@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
               questions[_questionIndex],
             ),
             RaisedButton(
-              child: Question('Question 1'),
+              child: Text('Question 1'),
               onPressed: () {
                 print("Yes....");
               },
