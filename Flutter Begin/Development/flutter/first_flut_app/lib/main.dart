@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() {
   // It's a normal method written by flutter team ,This will render the widget or class to the application.
@@ -44,11 +45,11 @@ class _MyAppState extends State<MyApp> {
         // body: Text('Welcome Back to Scaffold Default Flutter Template'),
         body: Column(
           children: [
-            Text(
+            Question(
               questions[_questionIndex],
             ),
             RaisedButton(
-              child: Text('Question 1'),
+              child: Question('Question 1'),
               onPressed: () {
                 print("Yes....");
               },
