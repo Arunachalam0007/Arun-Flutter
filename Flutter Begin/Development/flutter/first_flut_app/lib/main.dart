@@ -38,7 +38,9 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print(_questionIndex.toString() + ' ' + questions[_questionIndex]['questionText']);
+    print(_questionIndex.toString() +
+        ' ' +
+        questions[_questionIndex]['questionText']);
   }
 
   @override
@@ -58,9 +60,13 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex]['questionText'],
             ),
-            Answer(answerQuestions),
-            Answer(answerQuestions),
-            Answer(answerQuestions)
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(
+                ansPressed: this.answerQuestions,
+                answerText: answer,
+              );
+            }).toList(),
           ],
         ),
       ),
