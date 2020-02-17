@@ -1,3 +1,4 @@
+import 'package:first_flut_app/answer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
@@ -48,20 +49,9 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex],
             ),
-            RaisedButton(
-              child: Text('Question 1'),
-              onPressed: () {
-                print("Yes....");
-              },
-            ),
-            RaisedButton(
-              child: Text('Question 2'),
-              onPressed: answerQuestions,
-            ),
-            RaisedButton(
-              child: Text('Question 3'),
-              onPressed: answerQuestions,
-            )
+            Answer(answerQuestions),
+            Answer(answerQuestions),
+            Answer(answerQuestions)
           ],
         ),
       ),
