@@ -20,16 +20,25 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
   var questions = [
-    'Do u like Cricket ?',
-    'Do u like Football ?',
-    'Do u like Tennis ?'
+    {
+      'questionText': 'Which programming language do you like ?',
+      'answers': ['Java', 'Dart', 'Kotlin', 'Javascript']
+    },
+    {
+      'questionText': 'Who\'s your fav cricket player ',
+      'answers': ['Raina', 'Dhoni', 'Kholi', 'Yuvi']
+    },
+    {
+      'questionText': 'Who\'s your fav hero',
+      'answers': ['Vijay', 'Ajith', 'Karthi']
+    }
   ];
 
   void answerQuestions() {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print(_questionIndex.toString() + ' ' + questions[_questionIndex]);
+    print(_questionIndex.toString() + ' ' + questions[_questionIndex]['questionText']);
   }
 
   @override
@@ -47,7 +56,7 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(
-              questions[_questionIndex],
+              questions[_questionIndex]['questionText'],
             ),
             Answer(answerQuestions),
             Answer(answerQuestions),
