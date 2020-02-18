@@ -53,11 +53,17 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = _questionIndex + 1;
       _answerScore += score;
     });
-    print('Your Total Score: ' +
-        _answerScore.toString());
+    print('Your Total Score: ' + _answerScore.toString());
     print(_questionIndex.toString() +
         ' ' +
         questions[_questionIndex]['questionText']);
+  }
+
+  void resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _answerScore = 0;
+    });
   }
 
   @override
@@ -77,7 +83,10 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: questions,
                 answerQuestions: answerQuestions)
-            : Finalpage(),
+            : Result(
+                finalScore: _answerScore,
+                resetQuiz: this.resetQuiz,
+              ),
       ),
     );
   }
