@@ -1,7 +1,6 @@
-import 'package:first_flut_app/answer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './question.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() {
   // It's a normal method written by flutter team ,This will render the widget or class to the application.
@@ -18,26 +17,44 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  int _answerScore = 0;
 
   var questions = [
     {
       'questionText': 'Which programming language do you like ?',
-      'answers': ['Java', 'Dart', 'Kotlin', 'Javascript']
+      'answers': [
+        {'text': 'Java', 'score': 10},
+        {'text': 'Dart', 'score': 10},
+        {'text': 'Kotlin', 'score': 5},
+        {'text': 'Javascript', 'score': 8}
+      ]
     },
     {
       'questionText': 'Who\'s your fav cricket player ',
-      'answers': ['Raina', 'Dhoni', 'Kholi', 'Yuvi']
+      'answers': [
+        {'text': 'Raina', 'score': 10},
+        {'text': 'Dhoni', 'score': 10},
+        {'text': 'Kholi', 'score': 5},
+        {'text': 'Yuvi', 'score': 8}
+      ]
     },
     {
       'questionText': 'Who\'s your fav hero',
-      'answers': ['Vijay', 'Ajith', 'Karthi']
+      'answers': [
+        {'text': 'Vijay', 'score': 10},
+        {'text': 'Ajith', 'score': 10},
+        {'text': 'Karthi', 'score': 8}
+      ]
     }
   ];
 
-  void answerQuestions() {
+  void answerQuestions(int score) {
     setState(() {
       _questionIndex = _questionIndex + 1;
+      _answerScore += score;
     });
+    print('Your Total Score: ' +
+        _answerScore.toString());
     print(_questionIndex.toString() +
         ' ' +
         questions[_questionIndex]['questionText']);
@@ -56,27 +73,11 @@ class _MyAppState extends State<MyApp> {
         ),
         // body: Text('Welcome Back to Scaffold Default Flutter Template'),
         body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(
-                    questions[_questionIndex]['questionText'],
-                  ),
-                  //Spread Operator
-                  ...(questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Answer(
-                      ansPressed: this.answerQuestions,
-                      answerText: answer,
-                    );
-                  }).toList(),
-                ],
-              )
-            : Center(
-                child: Text(
-                  'You Did it !!!!!!!!',
-                  style: TextStyle(fontSize: 30, color: Colors.red),
-                ),
-              ),
+            ? Quiz(
+                questionIndex: _questionIndex,
+                questions: questions,
+                answerQuestions: answerQuestions)
+            : Finalpage(),
       ),
     );
   }
