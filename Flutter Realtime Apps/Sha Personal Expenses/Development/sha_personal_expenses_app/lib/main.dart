@@ -43,12 +43,32 @@ class MyHomePage extends StatelessWidget {
           Column(
             children: expenses.map((expensesData) {
               return Card(
-                color: Colors.green ,
-                child: Text(
-                  expensesData.title,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                color: Colors.green,
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '\$${expensesData.amount}',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          expensesData.title,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          expensesData.date.toString(),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               );
             }).toList(),
