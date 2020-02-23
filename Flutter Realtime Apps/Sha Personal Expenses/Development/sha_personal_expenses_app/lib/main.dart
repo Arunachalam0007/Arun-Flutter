@@ -16,10 +16,18 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sha Daily Expenses'),
+        title: Text('Sha Daily Expenses Tracker'),
+        elevation: 5, // Giving DARK Color CARD
       ),
-      body: Center(
-        child: Text('Sha Real Time Application Begins'),
+      body: Column(
+        children: <Widget>[
+          Card(
+            child: Text('CHART!!!'),
+          ),
+          Card(
+            child: Text('Transaction!!!'),
+          ),
+        ],
       ),
     );
   }
