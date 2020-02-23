@@ -46,11 +46,12 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.green,
                 child: Row(
                   children: <Widget>[
-                    Container( // Container For Styling
-                      margin: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15
-                      ), 
+                    Container(
+                      // Container For Styling
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 5)),
+                      padding: EdgeInsets.all(10),
                       child: Text(
                         '\$${expensesData.amount}',
                         style: TextStyle(
