@@ -20,6 +20,8 @@ class MyHomePage extends StatelessWidget {
         elevation: 5, // Giving DARK Color CARD
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround, // Horizontal
+        crossAxisAlignment: CrossAxisAlignment.center, // Vertical //Default
         children: <Widget>[
           Container(
             width: double.infinity, 
