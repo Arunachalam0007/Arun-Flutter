@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import './expenses.dart';
 
@@ -50,25 +51,30 @@ class MyHomePage extends StatelessWidget {
                       // Container For Styling
                       margin:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                      decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 5)),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 5)),
                       padding: EdgeInsets.all(10),
                       child: Text(
                         '\$${expensesData.amount}',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.yellow,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
                           expensesData.title,
                           style: TextStyle(
-                            color: Colors.white,
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          expensesData.date.toString(),
+                          DateFormat.yMMMd().format(expensesData.date),
                           style: TextStyle(
                             color: Colors.white,
                           ),
